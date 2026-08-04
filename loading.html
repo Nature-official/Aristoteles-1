@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Authenticating...</title>
+
+<style>
+
+body{
+
+margin:0;
+background:black;
+color:lime;
+
+font-family:Consolas, monospace;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+height:100vh;
+
+}
+
+#terminal{
+
+width:650px;
+
+font-size:24px;
+
+line-height:2;
+
+}
+
+.hidden{
+
+display:none;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="terminal">
+
+<div id="line1">Verifying credentials...</div>
+<div id="bar1"></div>
+
+<div id="line2" class="hidden">Decrypting drive...</div>
+<div id="bar2"></div>
+
+<div id="line3" class="hidden">Authenticating user...</div>
+<div id="bar3"></div>
+
+<div id="welcome" class="hidden"></div>
+
+</div>
+
+<script>
+
+function animateBar(element, callback){
+
+let progress=0;
+
+let interval=setInterval(function(){
+
+progress++;
+
+element.innerHTML="█".repeat(progress);
+
+if(progress>=25){
+
+clearInterval(interval);
+
+callback();
+
+}
+
+},40);
+
+}
+
+const line2=document.getElementById("line2");
+const line3=document.getElementById("line3");
+const welcome=document.getElementById("welcome");
+
+animateBar(document.getElementById("bar1"),function(){
+
+line2.classList.remove("hidden");
+
+animateBar(document.getElementById("bar2"),function(){
+
+line3.classList.remove("hidden");
+
+animateBar(document.getElementById("bar3"),function(){
+
+welcome.classList.remove("hidden");
+
+welcome.innerHTML="<br>Welcome, Dr. Aristoteles.";
+
+setTimeout(function(){
+
+window.location="desktop.html";
+
+},2500);
+
+});
+
+});
+
+});
+
+</script>
+
+</body>
+
+</html>
