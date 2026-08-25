@@ -735,84 +735,69 @@ function drawTI() {
     }
 
 
-    /* =========================
-       THE WHITE PIXELATED DOT
-       ========================= */
+/* =========================
+   THE WHITE PIXELATED DOT
+   ========================= */
 
+const dotX = width * 0.53;
+const dotY = height * 0.48;
 
-    /*
-    Position of the object.
+/* A small irregular pixel cluster */
 
-    You can change these later.
-    */
+const dotPixels = [
+    [-1, -1],
+    [ 0, -1],
+    [-1,  0],
+    [ 0,  0],
+    [ 1,  0],
+    [ 0,  1]
+];
 
-    const dotX = width * 0.53;
-    const dotY = height * 0.48;
+const dotPixelSize = 3;
 
+tiCtx.fillStyle = "#ffffff";
 
-    /*
-    Create a deliberately pixelated
-    circular object.
-    */
-
-    const dotSize = 5;
-
-
-    tiCtx.fillStyle = "#ffffff";
-
-
-    /*
-    Central square
-    */
+for (const [px, py] of dotPixels) {
 
     tiCtx.fillRect(
-        dotX - dotSize,
-        dotY - dotSize,
-        dotSize * 2,
-        dotSize * 2
-    );
-
-
-    /*
-    Pixel edges
-    */
-
-    tiCtx.fillRect(
-        dotX - dotSize * 2,
-        dotY - dotSize / 2,
-        dotSize,
-        dotSize
-    );
-
-    tiCtx.fillRect(
-        dotX + dotSize,
-        dotY - dotSize / 2,
-        dotSize,
-        dotSize
-    );
-
-    tiCtx.fillRect(
-        dotX - dotSize / 2,
-        dotY - dotSize * 2,
-        dotSize,
-        dotSize
-    );
-
-    tiCtx.fillRect(
-        dotX - dotSize / 2,
-        dotY + dotSize,
-        dotSize,
-        dotSize
+        dotX + px * dotPixelSize,
+        dotY + py * dotPixelSize,
+        dotPixelSize,
+        dotPixelSize
     );
 
 }
 
 
-/* DRAW QPR-001TI */
+
+/* =========================
+   ANIMATE QPR-001TI
+   ========================= */
+
+let lastTIUpdate = 0;
+
+const TI_UPDATE_SPEED = 200;
+
+
+function animateTI(timestamp) {
+
+    if (
+        timestamp - lastTIUpdate
+        >= TI_UPDATE_SPEED
+    ) {
+
+        drawTI();
+
+        lastTIUpdate = timestamp;
+
+    }
+
+    requestAnimationFrame(animateTI);
+
+}
+
 
 resizeTICanvas();
-
-drawTI();
 
 
 window.addEventListener(
@@ -825,6 +810,9 @@ window.addEventListener(
 
     }
 );
+
+
+requestAnimationFrame(animateTI);
     
 </script>
     
