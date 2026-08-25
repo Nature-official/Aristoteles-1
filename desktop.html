@@ -134,6 +134,77 @@ body{
 
     background: black;
 }
+
+/* =========================
+   QPR-001TI WINDOW
+   ========================= */
+
+.ti-window {
+    position: fixed;
+
+    top: 50%;
+    right: 70px;
+
+    transform: translateY(-50%);
+
+    width: 560px;
+    height: 300px;
+
+    background: #111;
+
+    border: 1px solid #999;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.25);
+
+    z-index: 20;
+}
+
+
+/* WHITE TITLE BAR */
+
+.ti-titlebar {
+    height: 42px;
+
+    background: white;
+
+    color: #111;
+
+    display: flex;
+    align-items: center;
+
+    padding-left: 18px;
+
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+
+    border-bottom: 1px solid #aaa;
+}
+
+
+/* IMAGE AREA */
+
+.ti-content {
+    width: 100%;
+    height: calc(100% - 42px);
+
+    background: #111;
+
+    overflow: hidden;
+}
+
+
+#tiCanvas {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    image-rendering: pixelated;
+
+    background: #111;
+}
     
 </style>
 
@@ -160,6 +231,19 @@ body{
 
 </div>
 
+<!-- QPR-001TI WINDOW -->
+<div class="ti-window" id="tiWindow">
+
+    <div class="ti-titlebar">
+        <span>QPR-001TI</span>
+    </div>
+
+    <div class="ti-content">
+        <canvas id="tiCanvas"></canvas>
+    </div>
+
+</div>
+    
 <script>
 
 const canvas = document.getElementById("qprGraph");
@@ -545,6 +629,203 @@ window.addEventListener(
 
 requestAnimationFrame(animate);
 
+/* =========================
+   QPR-001TI IMAGE
+   ========================= */
+
+const tiCanvas = document.getElementById("tiCanvas");
+const tiCtx = tiCanvas.getContext("2d");
+
+
+function resizeTICanvas() {
+
+    const rect = tiCanvas.getBoundingClientRect();
+
+    tiCanvas.width = rect.width;
+    tiCanvas.height = rect.height;
+
+}
+
+
+/* =========================
+   DRAW THE GRAINY IMAGE
+   ========================= */
+
+function drawTI() {
+
+    const width = tiCanvas.width;
+    const height = tiCanvas.height;
+
+
+    /* DARK BACKGROUND */
+
+    tiCtx.fillStyle = "#111";
+
+    tiCtx.fillRect(
+        0,
+        0,
+        width,
+        height
+    );
+
+
+    /*
+    PIXEL SIZE
+
+    Larger number = larger,
+    more visible pixels.
+    */
+
+    const pixelSize = 4;
+
+
+    /*
+    CREATE THE GRAIN
+
+    The brightness gradually changes
+    diagonally across the image.
+    */
+
+    for (let y = 0; y < height; y += pixelSize) {
+
+        for (let x = 0; x < width; x += pixelSize) {
+
+            /*
+            Diagonal gradient:
+            top-left → bottom-right
+            */
+
+            const gradient =
+                (x / width + y / height) / 2;
+
+
+            /*
+            Random grain
+            */
+
+            const noise =
+                Math.random() * 45;
+
+
+            /*
+            Final brightness
+            */
+
+            const brightness =
+                Math.floor(
+                    10 +
+                    gradient * 35 +
+                    noise
+                );
+
+
+            tiCtx.fillStyle =
+                `rgb(${brightness}, ${brightness}, ${brightness})`;
+
+
+            tiCtx.fillRect(
+                x,
+                y,
+                pixelSize,
+                pixelSize
+            );
+
+        }
+
+    }
+
+
+    /* =========================
+       THE WHITE PIXELATED DOT
+       ========================= */
+
+
+    /*
+    Position of the object.
+
+    You can change these later.
+    */
+
+    const dotX = width * 0.53;
+    const dotY = height * 0.48;
+
+
+    /*
+    Create a deliberately pixelated
+    circular object.
+    */
+
+    const dotSize = 5;
+
+
+    tiCtx.fillStyle = "#ffffff";
+
+
+    /*
+    Central square
+    */
+
+    tiCtx.fillRect(
+        dotX - dotSize,
+        dotY - dotSize,
+        dotSize * 2,
+        dotSize * 2
+    );
+
+
+    /*
+    Pixel edges
+    */
+
+    tiCtx.fillRect(
+        dotX - dotSize * 2,
+        dotY - dotSize / 2,
+        dotSize,
+        dotSize
+    );
+
+    tiCtx.fillRect(
+        dotX + dotSize,
+        dotY - dotSize / 2,
+        dotSize,
+        dotSize
+    );
+
+    tiCtx.fillRect(
+        dotX - dotSize / 2,
+        dotY - dotSize * 2,
+        dotSize,
+        dotSize
+    );
+
+    tiCtx.fillRect(
+        dotX - dotSize / 2,
+        dotY + dotSize,
+        dotSize,
+        dotSize
+    );
+
+}
+
+
+/* DRAW QPR-001TI */
+
+resizeTICanvas();
+
+drawTI();
+
+
+window.addEventListener(
+    "resize",
+    function () {
+
+        resizeTICanvas();
+
+        drawTI();
+
+    }
+);
+    
 </script>
     
 </body>
