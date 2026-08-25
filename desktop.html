@@ -28,7 +28,9 @@ body{
     font-family:Arial, Helvetica, sans-serif;
 }
 
-/* Battery indicator */
+/* =========================
+   BATTERY INDICATOR
+   ========================= */
 
 #status{
     position:absolute;
@@ -67,238 +69,224 @@ body{
 
 
 /* =========================
+   DESKTOP FOLDERS
+   ========================= */
+
+.folder{
+    position:absolute;
+
+    width:90px;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+    cursor:pointer;
+    user-select:none;
+
+    z-index:5;
+}
+
+.folder-icon{
+    width:58px;
+    height:44px;
+
+    background:#d6d6d6;
+
+    border:1px solid #999;
+
+    border-radius:3px;
+
+    position:relative;
+}
+
+/* Folder tab */
+
+.folder-icon::before{
+    content:"";
+
+    position:absolute;
+
+    top:-7px;
+    left:4px;
+
+    width:24px;
+    height:8px;
+
+    background:#d6d6d6;
+
+    border:1px solid #999;
+
+    border-bottom:none;
+
+    border-radius:3px 3px 0 0;
+}
+
+.folder-name{
+    margin-top:8px;
+
+    font-size:13px;
+
+    color:#222;
+
+    text-align:center;
+
+    padding:3px 6px;
+
+    background:rgba(255,255,255,0.6);
+}
+
+
+/* FOLDER POSITIONS */
+
+#folder1{
+    top:170px;
+    left:40px;
+}
+
+#folder2{
+    top:280px;
+    left:40px;
+}
+
+#folder3{
+    top:390px;
+    left:40px;
+}
+
+
+/* =========================
    QPR-001G GRAPH WINDOW
    ========================= */
 
-.graph-window {
-    position: absolute;
+.graph-window{
+    position:absolute;
 
-    /* Position on the desktop */
-    bottom: 40px;
-    left: 40px;
+    bottom:40px;
+    left:40px;
 
-    width: 820px;
-    height: 390px;
+    width:820px;
+    height:390px;
 
-    background: #000;
+    background:#000;
 
-    border: 1px solid #999;
+    border:1px solid #999;
 
     box-shadow:
-        0 10px 30px rgba(0, 0, 0, 0.25);
+        0 10px 30px rgba(0,0,0,0.25);
 
-    z-index: 9999;
+    z-index:10;
 }
 
+.graph-titlebar{
+    height:42px;
 
-/* WHITE BAR AT THE TOP */
+    background:white;
 
-.graph-titlebar {
-    height: 42px;
+    color:#111;
 
-    background: white;
+    display:flex;
+    align-items:center;
 
-    color: #111;
+    padding-left:18px;
 
-    display: flex;
-    align-items: center;
+    font-size:15px;
+    font-weight:500;
 
-    padding-left: 18px;
-
-    font-family: Arial, sans-serif;
-    font-size: 15px;
-    font-weight: 500;
-
-    border-bottom: 1px solid #aaa;
-
-    box-sizing: border-box;
+    border-bottom:1px solid #aaa;
 }
 
+.graph-content{
+    width:100%;
+    height:calc(100% - 42px);
 
-/* BLACK GRAPH AREA */
+    background:black;
 
-.graph-content {
-    width: 100%;
-    height: calc(100% - 42px);
-
-    background: black;
-
-    overflow: hidden;
+    overflow:hidden;
 }
 
+#qprGraph{
+    width:100%;
+    height:100%;
 
-#qprGraph {
-    width: 100%;
-    height: 100%;
+    display:block;
 
-    display: block;
-
-    background: black;
+    background:black;
 }
+
 
 /* =========================
    QPR-001TI WINDOW
    ========================= */
 
-.ti-window {
-    position: fixed;
+.ti-window{
+    position:fixed;
 
-    top: 50%;
-    right: 70px;
+    top:50%;
+    right:70px;
 
-    transform: translateY(-50%);
+    transform:translateY(-50%);
 
-    width: 560px;
-    height: 300px;
+    width:560px;
+    height:300px;
 
-    background: #111;
+    background:#111;
 
-    border: 1px solid #999;
+    border:1px solid #999;
 
     box-shadow:
-        0 10px 30px rgba(0, 0, 0, 0.25);
+        0 10px 30px rgba(0,0,0,0.25);
 
-    z-index: 20;
+    z-index:20;
 }
 
+.ti-titlebar{
+    height:42px;
 
-/* WHITE TITLE BAR */
+    background:white;
 
-.ti-titlebar {
-    height: 42px;
+    color:#111;
 
-    background: white;
+    display:flex;
+    align-items:center;
 
-    color: #111;
+    padding-left:18px;
 
-    display: flex;
-    align-items: center;
+    font-size:15px;
+    font-weight:500;
 
-    padding-left: 18px;
-
-    font-family: Arial, sans-serif;
-    font-size: 15px;
-    font-weight: 500;
-
-    border-bottom: 1px solid #aaa;
+    border-bottom:1px solid #aaa;
 }
 
+.ti-content{
+    width:100%;
+    height:calc(100% - 42px);
 
-/* IMAGE AREA */
+    background:#111;
 
-.ti-content {
-    width: 100%;
-    height: calc(100% - 42px);
-
-    background: #111;
-
-    overflow: hidden;
+    overflow:hidden;
 }
 
+#tiCanvas{
+    width:100%;
+    height:100%;
 
-#tiCanvas {
-    width: 100%;
-    height: 100%;
+    display:block;
 
-    display: block;
+    image-rendering:pixelated;
 
-    image-rendering: pixelated;
-
-    background: #111;
+    background:#111;
 }
 
-/* =========================
-   DESKTOP FOLDERS
-   ========================= */
-
-.folder {
-    position: absolute;
-
-    width: 90px;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    cursor: pointer;
-
-    user-select: none;
-
-    z-index: 5;
-}
-
-
-.folder-icon {
-    width: 58px;
-    height: 44px;
-
-    background: #d6d6d6;
-
-    border: 1px solid #999;
-
-    border-radius: 3px;
-
-    position: relative;
-}
-
-
-/* Folder tab */
-
-.folder-icon::before {
-    content: "";
-
-    position: absolute;
-
-    top: -7px;
-    left: 4px;
-
-    width: 24px;
-    height: 8px;
-
-    background: #d6d6d6;
-
-    border: 1px solid #999;
-
-    border-bottom: none;
-
-    border-radius: 3px 3px 0 0;
-}
-
-
-.folder-name {
-    margin-top: 8px;
-
-    font-size: 13px;
-
-    color: #222;
-
-    text-align: center;
-
-    padding: 3px 6px;
-
-    background: rgba(255,255,255,0.6);
-}
-
-#folder1 {
-    top: 170px;
-    left: 40px;
-}
-
-#folder2 {
-    top: 280px;
-    left: 40px;
-}
-
-#folder3 {
-    top: 390px;
-    left: 40px;
-}
-    
 </style>
 
 </head>
 
+
 <body>
+
+
+<!-- BATTERY -->
 
 <div id="status">
     <div class="battery">
@@ -306,18 +294,7 @@ body{
     </div>
 </div>
 
-    <!-- QPR-001G GRAPH WINDOW -->
-<div class="graph-window" id="qprWindow">
 
-    <div class="graph-titlebar">
-        <span>QPR-001G</span>
-    </div>
-
-    <div class="graph-content">
-        <canvas id="qprGraph"></canvas>
-    </div>
-
-</div>
 <!-- =========================
      DESKTOP FOLDERS
      ========================= -->
@@ -336,7 +313,29 @@ body{
     <div class="folder-icon"></div>
     <div class="folder-name">Folder 03</div>
 </div>
-<!-- QPR-001TI WINDOW -->
+
+
+<!-- =========================
+     QPR-001G GRAPH WINDOW
+     ========================= -->
+
+<div class="graph-window" id="qprWindow">
+
+    <div class="graph-titlebar">
+        <span>QPR-001G</span>
+    </div>
+
+    <div class="graph-content">
+        <canvas id="qprGraph"></canvas>
+    </div>
+
+</div>
+
+
+<!-- =========================
+     QPR-001TI WINDOW
+     ========================= -->
+
 <div class="ti-window" id="tiWindow">
 
     <div class="ti-titlebar">
@@ -348,16 +347,16 @@ body{
     </div>
 
 </div>
-    
+
+
 <script>
+
+/* =========================
+   QPR-001G GRAPH
+   ========================= */
 
 const canvas = document.getElementById("qprGraph");
 const ctx = canvas.getContext("2d");
-
-
-/* =========================
-   GRAPH SETTINGS
-   ========================= */
 
 const COLS = 70;
 const ROWS = 27;
@@ -366,18 +365,7 @@ let cellWidth;
 let cellHeight;
 
 
-/* =========================
-   QPR-001G SEQUENCE
-   ========================= */
-
-/*
-The graph begins at height 7.
-
-The following numbers are the major
-destinations described in your sequence.
-The program automatically creates the
-diagonal movement between them.
-*/
+/* QPR-001G SEQUENCE */
 
 const destinations = [
 
@@ -432,34 +420,19 @@ const destinations = [
 
 ];
 
-
-/* =========================
-   BUILD THE COMPLETE
-   REPEATING SEQUENCE
-   ========================= */
-
 let sequence = [];
-
-
-/*
-First point: height 7.
-*/
 
 sequence.push(7);
 
 
-/*
-This function moves diagonally between
-two heights, one row at a time.
-*/
-
-function moveToHeight(from, to) {
+function moveToHeight(from, to){
 
     let current = from;
 
-    const direction = to > from ? 1 : -1;
+    const direction =
+        to > from ? 1 : -1;
 
-    while (current !== to) {
+    while(current !== to){
 
         current += direction;
 
@@ -470,18 +443,13 @@ function moveToHeight(from, to) {
 }
 
 
-/*
-Build the entire graph pattern.
+for(let i = 1; i < destinations.length; i++){
 
-After every destination is reached,
-it stays there for two additional
-horizontal cubes.
-*/
+    const previous =
+        destinations[i - 1];
 
-for (let i = 1; i < destinations.length; i++) {
-
-    const previous = destinations[i - 1];
-    const target = destinations[i];
+    const target =
+        destinations[i];
 
     moveToHeight(previous, target);
 
@@ -491,25 +459,14 @@ for (let i = 1; i < destinations.length; i++) {
 }
 
 
-/* =========================
-   LIVE GRAPH DATA
-   ========================= */
-
 let graphOffset = 0;
 
 
-/*
-Returns the height for any position.
-
-The modulo (%) means that after the
-entire sequence ends, it starts again
-from the beginning forever.
-*/
-
-function getHeight(index) {
+function getHeight(index){
 
     const sequenceIndex =
-        ((index % sequence.length) + sequence.length)
+        ((index % sequence.length)
+        + sequence.length)
         % sequence.length;
 
     return sequence[sequenceIndex];
@@ -517,16 +474,16 @@ function getHeight(index) {
 }
 
 
-/* =========================
-   RESIZE CANVAS
-   ========================= */
+function resizeCanvas(){
 
-function resizeCanvas() {
+    const rect =
+        canvas.getBoundingClientRect();
 
-    const rect = canvas.getBoundingClientRect();
+    canvas.width =
+        rect.width * window.devicePixelRatio;
 
-    canvas.width = rect.width * window.devicePixelRatio;
-    canvas.height = rect.height * window.devicePixelRatio;
+    canvas.height =
+        rect.height * window.devicePixelRatio;
 
     ctx.setTransform(
         window.devicePixelRatio,
@@ -537,25 +494,31 @@ function resizeCanvas() {
         0
     );
 
-    cellWidth = rect.width / COLS;
-    cellHeight = rect.height / ROWS;
+    cellWidth =
+        rect.width / COLS;
+
+    cellHeight =
+        rect.height / ROWS;
 
 }
 
 
-/* =========================
-   DRAW GRAPH
-   ========================= */
+function drawGraph(){
 
-function drawGraph() {
+    const width =
+        canvas.clientWidth;
 
-    const width = canvas.clientWidth;
-    const height = canvas.clientHeight;
+    const height =
+        canvas.clientHeight;
 
 
-    /* BLACK BACKGROUND */
+    ctx.clearRect(
+        0,
+        0,
+        width,
+        height
+    );
 
-    ctx.clearRect(0, 0, width, height);
 
     ctx.fillStyle = "#000";
 
@@ -567,18 +530,14 @@ function drawGraph() {
     );
 
 
-    /* =========================
-       DRAW 70 × 27 GRID
-       ========================= */
+    /* GRID */
 
     ctx.strokeStyle = "#1a1a1a";
 
     ctx.lineWidth = 1;
 
 
-    /* Vertical lines */
-
-    for (let x = 0; x <= COLS; x++) {
+    for(let x = 0; x <= COLS; x++){
 
         const positionX =
             x * cellWidth;
@@ -597,9 +556,7 @@ function drawGraph() {
     }
 
 
-    /* Horizontal lines */
-
-    for (let y = 0; y <= ROWS; y++) {
+    for(let y = 0; y <= ROWS; y++){
 
         const positionY =
             y * cellHeight;
@@ -618,9 +575,7 @@ function drawGraph() {
     }
 
 
-    /* =========================
-       DRAW GREEN QPR LINE
-       ========================= */
+    /* GREEN GRAPH LINE */
 
     ctx.strokeStyle = "#39ff88";
 
@@ -630,43 +585,37 @@ function drawGraph() {
 
     ctx.shadowBlur = 4;
 
-
     ctx.beginPath();
 
 
-    for (let column = 0; column < COLS; column++) {
+    for(
+        let column = 0;
+        column < COLS;
+        column++
+    ){
 
         const heightValue =
-            getHeight(graphOffset + column);
-
-
-        /*
-        Convert graph height into
-        a vertical canvas position.
-
-        Height 1 = top
-        Height 27 = bottom
-        */
+            getHeight(
+                graphOffset + column
+            );
 
         const row =
             heightValue - 1;
 
-
         const x =
             column * cellWidth
             + cellWidth / 2;
-
 
         const y =
             row * cellHeight
             + cellHeight / 2;
 
 
-        if (column === 0) {
+        if(column === 0){
 
             ctx.moveTo(x, y);
 
-        } else {
+        }else{
 
             ctx.lineTo(x, y);
 
@@ -677,35 +626,22 @@ function drawGraph() {
 
     ctx.stroke();
 
-
     ctx.shadowBlur = 0;
 
 }
 
 
-/* =========================
-   ANIMATE GRAPH
-   ========================= */
-
 let lastUpdate = 0;
-
-
-/*
-One new cube every 350 milliseconds.
-
-You can change this number later
-to make the graph faster or slower.
-*/
 
 const UPDATE_SPEED = 350;
 
 
-function animate(timestamp) {
+function animate(timestamp){
 
-    if (
+    if(
         timestamp - lastUpdate
         >= UPDATE_SPEED
-    ) {
+    ){
 
         graphOffset++;
 
@@ -713,17 +649,12 @@ function animate(timestamp) {
 
     }
 
-
     drawGraph();
 
     requestAnimationFrame(animate);
 
 }
 
-
-/* =========================
-   START GRAPH
-   ========================= */
 
 resizeCanvas();
 
@@ -734,32 +665,40 @@ window.addEventListener(
 
 requestAnimationFrame(animate);
 
+
+
 /* =========================
    QPR-001TI IMAGE
    ========================= */
 
-const tiCanvas = document.getElementById("tiCanvas");
-const tiCtx = tiCanvas.getContext("2d");
+const tiCanvas =
+    document.getElementById("tiCanvas");
+
+const tiCtx =
+    tiCanvas.getContext("2d");
 
 
-function resizeTICanvas() {
+function resizeTICanvas(){
 
-    const rect = tiCanvas.getBoundingClientRect();
+    const rect =
+        tiCanvas.getBoundingClientRect();
 
-    tiCanvas.width = rect.width;
-    tiCanvas.height = rect.height;
+    tiCanvas.width =
+        rect.width;
+
+    tiCanvas.height =
+        rect.height;
 
 }
 
 
-/* =========================
-   DRAW THE GRAINY IMAGE
-   ========================= */
+function drawTI(){
 
-function drawTI() {
+    const width =
+        tiCanvas.width;
 
-    const width = tiCanvas.width;
-    const height = tiCanvas.height;
+    const height =
+        tiCanvas.height;
 
 
     /* DARK BACKGROUND */
@@ -774,59 +713,40 @@ function drawTI() {
     );
 
 
-    /*
-    PIXEL SIZE
-
-    Larger number = larger,
-    more visible pixels.
-    */
-
     const pixelSize = 4;
 
 
-    /*
-    CREATE THE GRAIN
+    /* GRAIN */
 
-    The brightness gradually changes
-    diagonally across the image.
-    */
+    for(
+        let y = 0;
+        y < height;
+        y += pixelSize
+    ){
 
-    for (let y = 0; y < height; y += pixelSize) {
-
-        for (let x = 0; x < width; x += pixelSize) {
-
-            /*
-            Diagonal gradient:
-            top-left → bottom-right
-            */
+        for(
+            let x = 0;
+            x < width;
+            x += pixelSize
+        ){
 
             const gradient =
-                (x / width + y / height) / 2;
-
-
-            /*
-            Random grain
-            */
+                (x / width
+                + y / height)
+                / 2;
 
             const noise =
                 Math.random() * 45;
 
-
-            /*
-            Final brightness
-            */
-
             const brightness =
                 Math.floor(
-                    10 +
-                    gradient * 35 +
-                    noise
+                    10
+                    + gradient * 35
+                    + noise
                 );
-
 
             tiCtx.fillStyle =
                 `rgb(${brightness}, ${brightness}, ${brightness})`;
-
 
             tiCtx.fillRect(
                 x,
@@ -840,58 +760,72 @@ function drawTI() {
     }
 
 
-/* =========================
-   THE WHITE PIXELATED DOT
-   ========================= */
+    /* WHITE PIXELATED DOT */
 
-const dotX = width * 0.53;
-const dotY = height * 0.48;
+    const dotX =
+        width * 0.53;
 
-/* A small irregular pixel cluster */
+    const dotY =
+        height * 0.48;
 
-const dotPixels = [
-              [0, -3], [1, -3],
-    [-1, -2], [0, -2], [1, -2], [2, -2],
-    [-1, -1], [0, -1], [1, -1], [2, -1],
-              [0,  0], [1,  0]
-];
-    
-const dotPixelSize = 3;
 
-tiCtx.fillStyle = "#ffffff";
+    const dotPixels = [
 
-for (const [px, py] of dotPixels) {
+                  [0, -3], [1, -3],
 
-    tiCtx.fillRect(
-        dotX + px * dotPixelSize,
-        dotY + py * dotPixelSize,
-        dotPixelSize,
-        dotPixelSize
-    );
+        [-1, -2], [0, -2], [1, -2], [2, -2],
+
+        [-1, -1], [0, -1], [1, -1], [2, -1],
+
+                  [0,  0], [1,  0]
+
+    ];
+
+
+    const dotPixelSize = 3;
+
+    tiCtx.fillStyle = "#ffffff";
+
+
+    for(
+        const [px, py]
+        of dotPixels
+    ){
+
+        tiCtx.fillRect(
+            dotX
+            + px * dotPixelSize,
+
+            dotY
+            + py * dotPixelSize,
+
+            dotPixelSize,
+            dotPixelSize
+        );
+
+    }
 
 }
 
-}
 
-/* =========================
-   ANIMATE QPR-001TI
-   ========================= */
+/* ANIMATE QPR-001TI */
 
 let lastTIUpdate = 0;
 
 const TI_UPDATE_SPEED = 60;
 
 
-function animateTI(timestamp) {
+function animateTI(timestamp){
 
-    if (
+    if(
         timestamp - lastTIUpdate
         >= TI_UPDATE_SPEED
-    ) {
+    ){
 
         drawTI();
 
-        lastTIUpdate = timestamp;
+        lastTIUpdate =
+            timestamp;
 
     }
 
@@ -905,7 +839,7 @@ resizeTICanvas();
 
 window.addEventListener(
     "resize",
-    function () {
+    function(){
 
         resizeTICanvas();
 
@@ -916,9 +850,9 @@ window.addEventListener(
 
 
 requestAnimationFrame(animateTI);
-    
+
 </script>
-    
+
 </body>
 
 </html>
