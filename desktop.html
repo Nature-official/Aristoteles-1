@@ -745,14 +745,15 @@ const dotY = height * 0.48;
 /* A small irregular pixel cluster */
 
 const dotPixels = [
-    [-1, -1],
-    [ 0, -1],
-    [-1,  0],
-    [ 0,  0],
-    [ 1,  0],
-    [ 0,  1]
+              [0, -3], [1, -3],
+    [-1, -2], [0, -2], [1, -2], [2, -2],
+    [-1, -1], [0, -1], [1, -1], [2, -1],
+    [-1,  0], [0,  0], [1,  0], [2,  0],
+    [-1,  1], [0,  1], [1,  1], [2,  1],
+    [-1,  2], [0,  2], [1,  2], [2,  2],
+              [0,  3], [1,  3]
 ];
-
+    
 const dotPixelSize = 3;
 
 tiCtx.fillStyle = "#ffffff";
@@ -776,7 +777,7 @@ for (const [px, py] of dotPixels) {
 
 let lastTIUpdate = 0;
 
-const TI_UPDATE_SPEED = 200;
+const TI_UPDATE_SPEED = 60;
 
 
 function animateTI(timestamp) {
