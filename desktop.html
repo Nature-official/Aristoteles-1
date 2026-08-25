@@ -65,6 +65,40 @@ body{
     border-radius:1px;
 }
 
+<!-- =========================
+     DESKTOP FOLDERS
+     ========================= -->
+
+<div class="folder" id="folder1">
+
+    <div class="folder-icon"></div>
+
+    <div class="folder-name">
+        Folder 01
+    </div>
+
+</div>
+
+
+<div class="folder" id="folder2">
+
+    <div class="folder-icon"></div>
+
+    <div class="folder-name">
+        Folder 02
+    </div>
+
+</div>
+
+
+<div class="folder" id="folder3">
+
+    <div class="folder-icon"></div>
+
+    <div class="folder-name">
+        Folder 03
+    </div>
+    
 /* =========================
    QPR-001G GRAPH WINDOW
    ========================= */
@@ -204,6 +238,93 @@ body{
     image-rendering: pixelated;
 
     background: #111;
+}
+
+/* =========================
+   DESKTOP FOLDERS
+   ========================= */
+
+.folder {
+    position: absolute;
+
+    width: 90px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    cursor: pointer;
+
+    user-select: none;
+
+    z-index: 5;
+}
+
+
+.folder-icon {
+    width: 58px;
+    height: 44px;
+
+    background: #d6d6d6;
+
+    border: 1px solid #999;
+
+    border-radius: 3px;
+
+    position: relative;
+}
+
+
+/* Folder tab */
+
+.folder-icon::before {
+    content: "";
+
+    position: absolute;
+
+    top: -7px;
+    left: 4px;
+
+    width: 24px;
+    height: 8px;
+
+    background: #d6d6d6;
+
+    border: 1px solid #999;
+
+    border-bottom: none;
+
+    border-radius: 3px 3px 0 0;
+}
+
+
+.folder-name {
+    margin-top: 8px;
+
+    font-size: 13px;
+
+    color: #222;
+
+    text-align: center;
+
+    padding: 3px 6px;
+
+    background: rgba(255,255,255,0.6);
+}
+
+#folder1 {
+    top: 170px;
+    left: 40px;
+}
+
+#folder2 {
+    top: 280px;
+    left: 40px;
+}
+
+#folder3 {
+    top: 390px;
+    left: 40px;
 }
     
 </style>
