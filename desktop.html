@@ -278,6 +278,136 @@ body{
     background:#111;
 }
 
+/* =========================
+   FOLDER WINDOWS
+   ========================= */
+
+.folder-window{
+    position:fixed;
+
+    top:50%;
+    left:50%;
+
+    transform:translate(-50%, -50%);
+
+    width:800px;
+    height:500px;
+
+    background:#d6d6d6;
+
+    border:1px solid #999;
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,0.35);
+
+    z-index:10000;
+
+    display:none;
+}
+
+
+/* TOP BAR */
+
+.folder-window-titlebar{
+    height:42px;
+
+    background:#d6d6d6;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding-left:18px;
+    padding-right:12px;
+
+    border-bottom:1px solid #999;
+
+    font-size:15px;
+}
+
+
+/* CLOSE BUTTON */
+
+.close-folder{
+    width:28px;
+    height:28px;
+
+    border:none;
+
+    background:transparent;
+
+    font-size:22px;
+
+    cursor:pointer;
+
+    color:#333;
+
+    line-height:25px;
+}
+
+.close-folder:hover{
+    background:#c5c5c5;
+}
+
+
+/* MAIN WINDOW AREA */
+
+.folder-window-body{
+    display:flex;
+
+    width:100%;
+    height:calc(100% - 42px);
+
+    background:white;
+}
+
+
+/* =========================
+   TAB COLUMN
+   ========================= */
+
+.folder-tabs{
+    width:180px;
+
+    background:#d6d6d6;
+
+    border-right:1px solid #999;
+
+    padding-top:10px;
+}
+
+
+/* INDIVIDUAL TAB */
+
+.folder-tab{
+    padding:12px 15px;
+
+    cursor:pointer;
+
+    font-size:14px;
+
+    border-bottom:1px solid #bbb;
+}
+
+.folder-tab:hover{
+    background:#c5c5c5;
+}
+
+
+/* =========================
+   CONTENT AREA
+   ========================= */
+
+.folder-content{
+    flex:1;
+
+    background:white;
+
+    padding:25px;
+
+    overflow:auto;
+}
+    
 </style>
 
 </head>
@@ -299,17 +429,23 @@ body{
      DESKTOP FOLDERS
      ========================= -->
 
-<div class="folder" id="folder1">
+<div class="folder" 
+    id="folder1"
+    onclick="openFolder('discoveriesWindow')">
     <div class="folder-icon"></div>
     <div class="folder-name">Discoveries</div>
 </div>
 
-<div class="folder" id="folder2">
+<div class="folder" 
+    id="folder2"
+    onclick="openFolder('inventionsWindow')">
     <div class="folder-icon"></div>
     <div class="folder-name">Inventions</div>
 </div>
 
-<div class="folder" id="folder3">
+<div class="folder" 
+    id="folder3"
+    onclick="openFolder('problemsWindow')">
     <div class="folder-icon"></div>
     <div class="folder-name">Unsolved problems</div>
 </div>
@@ -348,7 +484,164 @@ body{
 
 </div>
 
+<!-- =========================
+     DISCOVERIES WINDOW
+     ========================= -->
 
+<div class="folder-window" id="discoveriesWindow">
+
+    <div class="folder-window-titlebar">
+
+        <span>Discoveries</span>
+
+        <button class="close-folder"
+        onclick="closeFolder('discoveriesWindow')">
+            ×
+        </button>
+
+    </div>
+
+
+    <div class="folder-window-body">
+
+        <div class="folder-tabs">
+
+            <div class="folder-tab">
+                Tab 01
+            </div>
+
+            <div class="folder-tab">
+                Tab 02
+            </div>
+
+            <div class="folder-tab">
+                Tab 03
+            </div>
+
+        </div>
+
+
+        <div class="folder-content">
+
+            <h2>Discoveries</h2>
+
+            <p>
+                Select a tab to view research data.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================
+     INVENTIONS WINDOW
+     ========================= -->
+
+<div class="folder-window" id="inventionsWindow">
+
+    <div class="folder-window-titlebar">
+
+        <span>Inventions</span>
+
+        <button class="close-folder"
+        onclick="closeFolder('inventionsWindow')">
+            ×
+        </button>
+
+    </div>
+
+
+    <div class="folder-window-body">
+
+        <div class="folder-tabs">
+
+            <div class="folder-tab">
+                Tab 01
+            </div>
+
+            <div class="folder-tab">
+                Tab 02
+            </div>
+
+            <div class="folder-tab">
+                Tab 03
+            </div>
+
+        </div>
+
+
+        <div class="folder-content">
+
+            <h2>Inventions</h2>
+
+            <p>
+                Select an invention.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================
+     UNSOLVED PROBLEMS WINDOW
+     ========================= -->
+
+<div class="folder-window"
+id="problemsWindow">
+
+    <div class="folder-window-titlebar">
+
+        <span>Unsolved problems</span>
+
+        <button class="close-folder"
+        onclick="closeFolder('problemsWindow')">
+            ×
+        </button>
+
+    </div>
+
+
+    <div class="folder-window-body">
+
+        <div class="folder-tabs">
+
+            <div class="folder-tab">
+                Problem 01
+            </div>
+
+            <div class="folder-tab">
+                Problem 02
+            </div>
+
+            <div class="folder-tab">
+                Problem 03
+            </div>
+
+        </div>
+
+
+        <div class="folder-content">
+
+            <h2>Unsolved problems</h2>
+
+            <p>
+                Select a problem to view the data.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+    
 <script>
 
 /* =========================
@@ -851,6 +1144,29 @@ window.addEventListener(
 
 requestAnimationFrame(animateTI);
 
+/* =========================
+   FOLDER WINDOWS
+   ========================= */
+
+function openFolder(windowID){
+
+    const folderWindow =
+        document.getElementById(windowID);
+
+    folderWindow.style.display = "block";
+
+}
+
+
+function closeFolder(windowID){
+
+    const folderWindow =
+        document.getElementById(windowID);
+
+    folderWindow.style.display = "none";
+
+}
+    
 </script>
 
 </body>
