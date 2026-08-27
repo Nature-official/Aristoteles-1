@@ -594,112 +594,135 @@ body{
      UNSOLVED PROBLEMS WINDOW
      ========================= -->
 
-<div class="folder-window"
-id="problemsWindow">
+<div class="folder-window" id="problemsWindow">
 
-   <div class="folder-tabs">
+    <!-- TOP TITLE BAR -->
 
-    <div class="folder-tab"
-         onclick="showProblem('dimensionality')">
-        Dimensionality problem
-    </div>
+    <div class="folder-window-titlebar">
 
-    <div class="folder-tab"
-         onclick="showProblem('quantum')">
-        Quantum behaviour
-    </div>
+        <span>Unsolved problems</span>
 
-    <div class="folder-tab"
-         onclick="showProblem('interdimensional')">
-        Interdimensional objects
-    </div>
-
-    <div class="folder-tab"
-         onclick="showProblem('telemoghtus')">
-        Telemoghtus, B-A
-    </div>
-
-</div>
-
-
-      <div class="folder-content">
-
-
-    <!-- DEFAULT SCREEN -->
-
-    <div class="problem-page"
-         id="problem-home">
-
-        <h2>Unsolved problems</h2>
-
-        <p>
-            Select a problem to view the available research data.
-        </p>
+        <button
+            class="close-folder"
+            onclick="closeFolder('problemsWindow')">
+            ×
+        </button>
 
     </div>
 
 
-    <!-- DIMENSIONALITY -->
+    <!-- MAIN WINDOW -->
 
-    <div class="problem-page"
-         id="dimensionality"
-         style="display:none;">
-
-        <h2>Dimensionality problem</h2>
-
-        <p>
-            Content will go here.
-        </p>
-
-    </div>
+    <div class="folder-window-body">
 
 
-    <!-- QUANTUM BEHAVIOUR -->
+        <!-- LEFT TAB COLUMN -->
 
-    <div class="problem-page"
-         id="quantum"
-         style="display:none;">
+        <div class="folder-tabs">
 
-        <h2>Quantum behaviour</h2>
+            <div class="folder-tab"
+                 onclick="showProblem('dimensionality')">
+                Dimensionality problem
+            </div>
 
-        <p>
-            Content will go here.
-        </p>
+            <div class="folder-tab"
+                 onclick="showProblem('quantum')">
+                Quantum behaviour
+            </div>
 
-    </div>
+            <div class="folder-tab"
+                 onclick="showProblem('interdimensional')">
+                Interdimensional objects
+            </div>
 
+            <div class="folder-tab"
+                 onclick="showProblem('telemoghtus')">
+                Telemoghtus, B-A
+            </div>
 
-    <!-- INTERDIMENSIONAL OBJECTS -->
-
-    <div class="problem-page"
-         id="interdimensional"
-         style="display:none;">
-
-        <h2>Interdimensional objects</h2>
-
-        <p>
-            Content will go here.
-        </p>
-
-    </div>
+        </div>
 
 
-    <!-- TELEMOGHTUS -->
+        <!-- RIGHT CONTENT AREA -->
 
-    <div class="problem-page"
-         id="telemoghtus"
-         style="display:none;">
-
-        <h2>Telemoghtus, B-A</h2>
-
-        <p>
-            Content will go here.
-        </p>
-
-    </div>
+        <div class="folder-content">
 
 
-</div>
+            <!-- DEFAULT PAGE -->
+
+            <div class="problem-page"
+                 id="problem-home">
+
+                <h2>Unsolved problems</h2>
+
+                <p>
+                    Select a problem to view the available research data.
+                </p>
+
+            </div>
+
+
+            <!-- DIMENSIONALITY PROBLEM -->
+
+            <div class="problem-page"
+                 id="dimensionality"
+                 style="display:none;">
+
+                <h2>Dimensionality problem</h2>
+
+                <p>
+                    Content will go here.
+                </p>
+
+            </div>
+
+
+            <!-- QUANTUM BEHAVIOUR -->
+
+            <div class="problem-page"
+                 id="quantum"
+                 style="display:none;">
+
+                <h2>Quantum behaviour</h2>
+
+                <p>
+                    Content will go here.
+                </p>
+
+            </div>
+
+
+            <!-- INTERDIMENSIONAL OBJECTS -->
+
+            <div class="problem-page"
+                 id="interdimensional"
+                 style="display:none;">
+
+                <h2>Interdimensional objects</h2>
+
+                <p>
+                    Content will go here.
+                </p>
+
+            </div>
+
+
+            <!-- TELEMOGHTUS -->
+
+            <div class="problem-page"
+                 id="telemoghtus"
+                 style="display:none;">
+
+                <h2>Telemoghtus, B-A</h2>
+
+                <p>
+                    Content will go here.
+                </p>
+
+            </div>
+
+
+        </div>
 
     </div>
 
