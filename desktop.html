@@ -597,50 +597,109 @@ body{
 <div class="folder-window"
 id="problemsWindow">
 
-    <div class="folder-window-titlebar">
+   <div class="folder-tabs">
 
-        <span>Unsolved problems</span>
-
-        <button class="close-folder"
-        onclick="closeFolder('problemsWindow')">
-            ×
-        </button>
-
-    </div>
-
-
-    <div class="folder-window-body">
-
-        <div class="folder-tabs">
-
-             <div class="folder-tab">
+    <div class="folder-tab"
+         onclick="showProblem('dimensionality')">
         Dimensionality problem
     </div>
 
-    <div class="folder-tab">
+    <div class="folder-tab"
+         onclick="showProblem('quantum')">
         Quantum behaviour
     </div>
 
-    <div class="folder-tab">
+    <div class="folder-tab"
+         onclick="showProblem('interdimensional')">
         Interdimensional objects
     </div>
 
-    <div class="folder-tab">
+    <div class="folder-tab"
+         onclick="showProblem('telemoghtus')">
         Telemoghtus, B-A
     </div>
 
 </div>
 
 
-        <div class="folder-content">
+      <div class="folder-content">
 
-            <h2>Unsolved problems</h2>
 
-            <p>
-                Select a problem to view the data.
-            </p>
+    <!-- DEFAULT SCREEN -->
 
-        </div>
+    <div class="problem-page"
+         id="problem-home">
+
+        <h2>Unsolved problems</h2>
+
+        <p>
+            Select a problem to view the available research data.
+        </p>
+
+    </div>
+
+
+    <!-- DIMENSIONALITY -->
+
+    <div class="problem-page"
+         id="dimensionality"
+         style="display:none;">
+
+        <h2>Dimensionality problem</h2>
+
+        <p>
+            Content will go here.
+        </p>
+
+    </div>
+
+
+    <!-- QUANTUM BEHAVIOUR -->
+
+    <div class="problem-page"
+         id="quantum"
+         style="display:none;">
+
+        <h2>Quantum behaviour</h2>
+
+        <p>
+            Content will go here.
+        </p>
+
+    </div>
+
+
+    <!-- INTERDIMENSIONAL OBJECTS -->
+
+    <div class="problem-page"
+         id="interdimensional"
+         style="display:none;">
+
+        <h2>Interdimensional objects</h2>
+
+        <p>
+            Content will go here.
+        </p>
+
+    </div>
+
+
+    <!-- TELEMOGHTUS -->
+
+    <div class="problem-page"
+         id="telemoghtus"
+         style="display:none;">
+
+        <h2>Telemoghtus, B-A</h2>
+
+        <p>
+            Content will go here.
+        </p>
+
+    </div>
+
+
+</div>
 
     </div>
 
@@ -1168,6 +1227,35 @@ function closeFolder(windowID){
         document.getElementById(windowID);
 
     folderWindow.style.display = "none";
+
+}
+
+/* =========================
+   UNSOLVED PROBLEMS TABS
+   ========================= */
+
+function showProblem(problemID){
+
+    /* Hide every problem page */
+
+    const problemPages =
+        document.querySelectorAll(".problem-page");
+
+
+    problemPages.forEach(function(page){
+
+        page.style.display = "none";
+
+    });
+
+
+    /* Show the selected problem */
+
+    const selectedProblem =
+        document.getElementById(problemID);
+
+
+    selectedProblem.style.display = "block";
 
 }
     
