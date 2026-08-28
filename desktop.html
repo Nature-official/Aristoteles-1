@@ -664,48 +664,247 @@ body{
 <!-- =========================
      INVENTIONS WINDOW
      ========================= -->
-
 <div class="folder-window" id="inventionsWindow">
+
+    <!-- TOP TITLE BAR -->
 
     <div class="folder-window-titlebar">
 
         <span>Inventions</span>
 
-        <button class="close-folder"
-        onclick="closeFolder('inventionsWindow')">
+        <button
+            class="close-folder"
+            onclick="closeFolder('inventionsWindow')">
             ×
         </button>
 
     </div>
 
 
+    <!-- MAIN WINDOW -->
+
     <div class="folder-window-body">
+
+
+        <!-- LEFT TAB COLUMN -->
 
         <div class="folder-tabs">
 
-            <div class="folder-tab">
-                Tab 01
+            <div class="folder-tab"
+                 onclick="showInvention('nanotechnology')">
+                Nanotechnology
             </div>
 
-            <div class="folder-tab">
-                Tab 02
+            <div class="folder-tab"
+                 onclick="showInvention('energy_manipulation')">
+                Energy manipulation
             </div>
 
-            <div class="folder-tab">
-                Tab 03
+            <div class="folder-tab"
+                 onclick="showInvention('time_machine')">
+                Time machine
             </div>
 
+            <div class="folder-tab"
+                 onclick="showInvention('dimensional_manipulation')">
+                Dimensional manipulation
+            </div>
+            
+            <div class="folder-tab"
+                 onclick="showInvention('matter_manipulation')">
+                Matter manipulation
+            </div>
+            
+            <div class="folder-tab"
+                 onclick="showInvention('force_direction')">
+                Force direction
+            </div>
+
+            <div class="folder-tab"
+                 onclick="showInvention('artificial_calculator')">
+                Artificial calculator
+            </div>
+
+            <div class="folder-tab"
+                 onclick="showInvention('wave_transmitter')">
+                Wave transmitter
+            </div>
+
+            <div class="folder-tab"
+                 onclick="showInvention('brain_chips')">
+                Brain chips
+            </div>
+
+            <div class="folder-tab"
+                 onclick="showInvention('cultivation')">
+                Cultivation
+            </div>
+            
         </div>
 
 
+        <!-- RIGHT CONTENT AREA -->
+
         <div class="folder-content">
 
-            <h2>Inventions</h2>
 
-            <p>
-                Select an invention.
-            </p>
+            <!-- DEFAULT PAGE -->
 
+            <div class="invention-page"
+                 id="invention-home">
+
+                <h2>Inventions</h2>
+
+                <p>
+                    Select a tab to view the available research data.
+                </p>
+
+            </div>
+
+
+            <!-- NANOTECHNOLOGY INVENTION -->
+
+            <div class="invention-page"
+                 id="nanotechnology"
+                 style="display:none;">
+
+                <h2>Nanotechnology</h2>
+
+                <p>
+                    Content will go here.
+                </p>
+
+            </div>
+
+
+            <!-- ENERGY MANIPULATION -->
+
+            <div class="invention-page"
+                 id="energy_manipulation"
+                 style="display:none;">
+
+                <h2>Energy manipulation</h2>
+
+                <p>
+                    Content will go here.
+                </p>
+
+            </div>
+
+
+            <!-- TIME MACHINE -->
+
+            <div class="invention-page"
+                 id="time machine"
+                 style="display:none;">
+
+                <h2>Time machine</h2>
+
+                <p>
+                    Content will go here.
+                </p>
+
+            </div>
+
+
+            <!-- DIMENSIONAL MANIPULATION -->
+
+            <div class="invention-page"
+                 id="dimensional_manipulation"
+                 style="display:none;">
+
+                <h2>Dimensional manipulation</h2>
+
+                <p>
+                    Content will go here.
+                </p>
+
+            </div>
+            
+            <!-- MATTER MANIPULATION -->
+
+            <div class="invention-page"
+                 id="matter_manipulation"
+                 style="display:none;">
+
+                <h2>Matter manipulation</h2>
+
+                <p>
+                    Content will go here.
+                </p>
+
+            </div>
+
+             <!-- FORCE DIRECTION -->
+
+            <div class="invention-page"
+                 id="force_direction"
+                 style="display:none;">
+
+                <h2>Force direction</h2>
+
+                <p>
+                    Content will go here.
+                </p>
+
+            </div>
+
+             <!-- ARTIFICIAL CALCULATOR -->
+            
+            <div class="invention-page"
+                 id="artificial_calculator"
+                 style="display:none;">
+
+                <h2>Artificial calculator</h2>
+
+                <p>
+                    Content will go here.
+                </p>
+
+            </div>
+
+             <!-- WAVE TRANSMITTER -->
+            
+            <div class="invention-page"
+                 id="wave transmitter"
+                 style="display:none;">
+
+                <h2>Wave transmitter</h2>
+
+                <p>
+                    Content will go here.
+                </p>
+
+            </div>
+
+               <!-- BRAIN CHIPS -->
+            
+             <div class="invention-page"
+                 id="brain_chips"
+                 style="display:none;">
+
+                <h2>Brain chips</h2>
+
+                <p>
+                    Content will go here.
+                </p>
+
+            </div>
+
+              <!-- CULTIVATION -->
+            
+            <div class="invention-page"
+                 id="cultivation"
+                 style="display:none;">
+
+                <h2>Cultivation</h2>
+
+                <p>
+                    Content will go here.
+                </p>
+
+            </div>
+            
         </div>
 
     </div>
@@ -1452,6 +1651,35 @@ function showDiscovery(discoveryID){
 
 
     selectedDiscovery.style.display = "block";
+
+}
+
+    /* =========================
+    INVENTIONS TABS
+   ========================= */
+
+function showInvention(inventionID){
+
+    /* Hide every invention page */
+
+    const inventionPages =
+        document.querySelectorAll(".invention-page");
+
+
+    inventionPages.forEach(function(page){
+
+        page.style.display = "none";
+
+    });
+
+
+    /* Show the selected invention */
+
+    const selectedInvention =
+        document.getElementById(inventionID);
+
+
+    selectedInvention.style.display = "block";
 
 }
     
