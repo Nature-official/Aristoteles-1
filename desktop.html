@@ -485,49 +485,173 @@ body{
 </div>
 
 <!-- =========================
-     DISCOVERIES WINDOW
+        DISCOVERIES WINDOW
      ========================= -->
 
 <div class="folder-window" id="discoveriesWindow">
+
+    <!-- TOP TITLE BAR -->
 
     <div class="folder-window-titlebar">
 
         <span>Discoveries</span>
 
-        <button class="close-folder"
-        onclick="closeFolder('discoveriesWindow')">
+        <button
+            class="close-folder"
+            onclick="closeFolder('discoveriesWindow')">
             ×
         </button>
 
     </div>
 
 
+    <!-- MAIN WINDOW -->
+
     <div class="folder-window-body">
+
+
+        <!-- LEFT TAB COLUMN -->
 
         <div class="folder-tabs">
 
-            <div class="folder-tab">
-                Tab 01
+            <div class="folder-tab"
+                 onclick="showDiscovery('Physics')">
+                Physics
             </div>
 
-            <div class="folder-tab">
-                Tab 02
+            <div class="folder-tab"
+                 onclick="showDiscovery('Chemistry')">
+                Chemistry
             </div>
 
-            <div class="folder-tab">
-                Tab 03
+            <div class="folder-tab"
+                 onclick="showDiscovery('Biology')">
+                Biology
+            </div>
+
+            <div class="folder-tab"
+                 onclick="showDiscovery('Math')">
+                Math
+            </div>
+            
+            <div class="folder-tab"
+                 onclick="showDiscovery('Energy')">
+                Energy
+            </div>
+            
+            <div class="folder-tab"
+                 onclick="showDiscovery('Dimensions')">
+                Dimensions
             </div>
 
         </div>
 
 
+        <!-- RIGHT CONTENT AREA -->
+
         <div class="folder-content">
 
-            <h2>Discoveries</h2>
 
-            <p>
-                Select a tab to view research data.
-            </p>
+            <!-- DEFAULT PAGE -->
+
+            <div class="discovery-page"
+                 id="discovery-home">
+
+                <h2>Discoveries</h2>
+
+                <p>
+                    Select a tab to view the available research data.
+                </p>
+
+            </div>
+
+
+            <!-- PHYSICS DISCOVERIES -->
+
+            <div class="discovery-page"
+                 id="physics"
+                 style="display:none;">
+
+                <h2>Physics discoveries</h2>
+
+                <p>
+                    Content will go here.
+                </p>
+
+            </div>
+
+
+            <!-- CHEMISTRY DISCOVERIES -->
+
+            <div class="discovery-page"
+                 id="chemistry"
+                 style="display:none;">
+
+                <h2>Chemistry discoveries</h2>
+
+                <p>
+                    Content will go here.
+                </p>
+
+            </div>
+
+
+            <!-- BIOLOGY DISCOVERIES -->
+
+            <div class="discovery-page"
+                 id="biology"
+                 style="display:none;">
+
+                <h2>Biology discoveries</h2>
+
+                <p>
+                    Content will go here.
+                </p>
+
+            </div>
+
+
+            <!-- MATH DISCOVERIES -->
+
+            <div class="discovery-page"
+                 id="math"
+                 style="display:none;">
+
+                <h2>Math discoveries</h2>
+
+                <p>
+                    Content will go here.
+                </p>
+
+            </div>
+            
+            <!-- ENERGY DISCOVERIES -->
+
+            <div class="discovery-page"
+                 id="energy"
+                 style="display:none;">
+
+                <h2>Energy discoveries</h2>
+
+                <p>
+                    Content will go here.
+                </p>
+
+            </div>
+
+             <!-- DIMENSIONAL DISCOVERIES -->
+
+            <div class="discovery-page"
+                 id="dimensions"
+                 style="display:none;">
+
+                <h2>Dimensional discoveries</h2>
+
+                <p>
+                    Content will go here.
+                </p>
+
+            </div>
 
         </div>
 
@@ -1299,6 +1423,35 @@ function showProblem(problemID){
 
 
     selectedProblem.style.display = "block";
+
+}
+
+/* =========================
+   DISCOVERIES TABS
+   ========================= */
+
+function showDiscovery(discoveryID){
+
+    /* Hide every discovery page */
+
+    const discoveryPages =
+        document.querySelectorAll(".discovery-page");
+
+
+    discoveryPages.forEach(function(page){
+
+        page.style.display = "none";
+
+    });
+
+
+    /* Show the selected discovery */
+
+    const selectedDiscovery =
+        document.getElementById(discoveryID);
+
+
+    selectedDiscovery.style.display = "block";
 
 }
     
